@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Video Recorder</title>
+    </head>
+    <body>
+    <h1>Video Recorder</h1>
+
+    <!-- Video Preview -->
+    <video id="videoPreview" autoplay muted playsinline style="width: 100%; max-width: 600px; border: 1px solid #ccc;"></video>
+
+    <!-- Controls -->
+    <div>
+        <label for="filePath">Choose File Path:</label>
+        <input type="file" id="filePath" webkitdirectory directory mozdirectory>
+    </div>
+
+    <div>
+        <button id="startBtn">Start Recording</button>
+        <button id="stopBtn" disabled>Stop Recording</button>
+        <p id="recordingTime">Recording Time: 0 seconds</p>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    </body>
+</html>
