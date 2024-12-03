@@ -25,7 +25,10 @@ public class VideoUploadController {
             }
 
             // 저장할 파일의 경로
-            String filePath = uploadDir + file.getOriginalFilename();
+            String originalFilename = file.getOriginalFilename();
+            String fileName = originalFilename != null ? originalFilename : "uploaded_video.webm";
+            String filePath = uploadDir + fileName;
+
             file.transferTo(new File(filePath));
 
             return "Video successfully uploaded to: " + filePath;
