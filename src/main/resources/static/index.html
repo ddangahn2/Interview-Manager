@@ -6,24 +6,19 @@
         <title>Video Recorder</title>
     </head>
     <body>
-    <h1>Video Recorder</h1>
+        <h1>비디오 레코드</h1>
 
-    <!-- Video Preview -->
-    <video id="videoPreview" autoplay muted playsinline style="width: 100%; max-width: 600px; border: 1px solid #ccc;"></video>
+        <!-- Video Preview -->
+        <video id="videoPreview" autoplay playsinline></video>
 
-    <!-- Controls -->
-    <div>
-        <label for="filePath">Choose File Path:</label>
-        <input type="file" id="filePath" webkitdirectory directory mozdirectory>
-    </div>
+        <!-- Controls -->
+        <div>
+            <button id="startBtn">시작</button>
+            <button id="stopBtn" disabled>종료</button>
+            <p id="recordingTime">녹화시간: 0초</p>
+        </div>
 
-    <div>
-        <button id="startBtn">Start Recording</button>
-        <button id="stopBtn" disabled>Stop Recording</button>
-        <p id="recordingTime">Recording Time: 0 seconds</p>
-    </div>
-
-    <!-- Script -->
-    <script src="script.js"></script>
+        <!-- Script -->
+        <script src="script.js"></script>
     </body>
 </html>
