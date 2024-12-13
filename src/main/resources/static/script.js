@@ -85,6 +85,26 @@ async function startRecording() {
     stopBtn.disabled = false;
 }
 
+async function uploadToServer(blob, fileName) {
+    const formData = new FormData();
+    formData.append('file', blob, fileName);
+
+    try {
+        const response = await fetch('http://localhost:8080/upload', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            console.log('파일 업로드 성공');
+        } else {
+            console.error('파일 업로드 실패', response.statusText);
+        }
+    } catch (error) {
+        console.error('업로드 중 오류 발생:', error);
+    }
+}
+
 // 녹화 저장
 function saveRecording() {
     // recordedChunks 배열을 Blob으로 병합
@@ -94,23 +114,22 @@ function saveRecording() {
     // 파일 이름 생성
     const fileName = generateFileName();
 
-    // Blob 객체를 URL로 변환
-    const url = URL.createObjectURL(blob);
-
-    // 다운로드 링크 생성
-    const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.download = fileName;
-    downloadLink.textContent = '영상 다운로드';
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-
     // 서버로 전송
-    // uploadToServer(blob);
+    uploadToServer(blob, fileName);
 
-    downloadLink.onclick = () => {
-        URL.revokeObjectURL(url);
-    };
+    // Blob 저장
+    // autoSaveBlob(blob, fileName);
+}
+
+function autoSaveBlob(blob, fileName) {
+    const blobURL = window.URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = blobURL;
+    link.download = fileName;
+    link.click();
+
+    window.URL.revokeObjectURL(blobURL);
 }
 
 // 녹화 종료
