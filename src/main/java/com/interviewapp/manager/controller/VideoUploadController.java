@@ -29,7 +29,7 @@ public class VideoUploadController {
             File destination = new File(UPLOAD_DIR + mp4FileName);
 
             // 변환
-            convertToMp4(sourceFile, destination);
+            // convertToMp4(sourceFile, destination);
 
             return ResponseEntity.status(HttpStatus.OK).body("파일 업로드 성공");
         } catch (IOException e) {
