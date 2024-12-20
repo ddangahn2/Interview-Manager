@@ -45,12 +45,12 @@ public class PostBoardController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePost(@PathVariable Long id, @RequestBody PostDTO postDTO){
-        try{
-            String userName = postDTO.getUserName();
-
-
-        }
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<?> deletePost(@PathVariable Long id, @RequestBody PostDTO postDTO){
+//        try{
+//            String userName = postDTO.getUserName();
+//
+//
+//        }
+//    }
 }

@@ -4,6 +4,9 @@ public class PostDTO {
     private String userName;
     private String content;
 
+    private PostDTO() {
+    }
+
     public PostDTO(String userName, String content){
         this.userName = userName;
         this.content = content;

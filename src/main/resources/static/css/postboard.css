@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.board-container {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.board-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.post .user {
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 0.5rem;
+}
+
+.post .content {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.post .actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.actions button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #555;
+}
+
+.actions button:hover {
+    background: #f0f0f0;
+}
+
+.write-button {
+    display: block;
+    margin: 1.5rem auto 0;
+    padding: 0.75rem 1.5rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.write-button:hover {
+    background: #45a049;
+}
