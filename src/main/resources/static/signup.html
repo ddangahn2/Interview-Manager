@@ -1,103 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>회원가입</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f4f4f9;
-    }
-
-    .signup-container {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .signup-container h2 {
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
-      color: #333;
-    }
-
-    .signup-container input {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    .signup-container button {
-      padding: 0.75rem;
-      margin: 1rem 0;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 100%;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('form');
-      const usernameInput = document.getElementById('id');
-      const passwordInput = document.querySelector('input[name="password"]');
-
-      form.addEventListener('submit', function (e) {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        if (username === '' || password === '') {
-          e.preventDefault();
-          alert('아이디와 비밀번호를 모두 입력해주세요.');
-          return;
-        }
-
-        e.preventDefault();
-        const formData = new FormData(form);
-
-        fetch('/login/signup', {
-          method: 'POST',
-          body: formData,
-        }).then(response => {
-          if (response.status === 201) {
-            window.location.href = '/';
-          } else {
-            alert('회원가입에 실패했습니다. 다시 시도해주세요.');
-          }
-        }).catch(() => {
-          alert('서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
-        });
-      });
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/css/signup.css">
+    <script src="/js/signup.js" defer></script>
 </head>
 <body>
 <div class="signup-container">
-  <h2>회원가입</h2>
-  <form>
-    <input type="text" id="id" name="username" placeholder="아이디 입력" required>
-    <input type="password" name="password" placeholder="비밀번호 입력" required>
-    <button type="submit" id="signup-button">회원가입 완료</button>
-  </form>
+    <h2>회원가입</h2>
+    <form>
+        <input type="text" id="id" name="username" placeholder="아이디 입력" required>
+        <input type="password" name="password" placeholder="비밀번호 입력" required>
+        <button type="submit" id="signup-button">회원가입 완료</button>
+    </form>
 </div>
 </body>
 </html>
